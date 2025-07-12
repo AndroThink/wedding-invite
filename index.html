@@ -4,92 +4,207 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>دعوة زفاف إسلام ومنه الله</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- لأجهزة آبل -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+
+  <!-- طريقة قياسية لـ favicon.ico -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<!-- PNG بدقة 32×32 -->
+<link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png">
+
+<!-- لمستخدمي آبل (iOS) -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
 
   <!-- خط Amiri وأيقونات Font-Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
-/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
-    * { margin:0; padding:0; box-sizing:border-box }
+    /* إعدادات أساسية */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     html, body {
-      width:100%; height:100%; overflow:hidden;
-      background:#000; font-family:'Amiri', serif;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;       /* للسماح بالتمرير عمودياً */
+      background: #000;
+      font-family: 'Amiri', serif;
     }
+
+    /* طبقة الفيديو تغطي كامل الشاشة */
     .vid {
-      position:fixed; top:0; left:0;
-      width:100vw; height:100vh;
-      -webkit-object-fit:cover;
-      object-fit:cover;
-      object-position:center center;
-      transition:opacity .8s ease;
-      z-index:1; opacity:0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      -webkit-object-fit: cover;
+      object-fit: cover;
+      object-position: center center;
+      transition: opacity .8s ease;
+      z-index: 1;
+      opacity: 0;
     }
-    #vA { opacity:1 }
+    #vA { opacity: 1; }
+
+    /* تراكب محتوى الدعوة */
     .overlay {
-      position:fixed; top:0; left:0;
-      width:100vw; height:100vh;
-      background:rgba(0,0,0,0.4);
-      z-index:2;
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
-      text-align:center; color:#fff;
-      padding:1rem;
+      position: relative;
+      margin: 0 auto;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      /*max-width: 500px;*/
+      min-height: 100vh;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 2rem 1rem;
     }
-    .overlay h1 { font-size:2.5rem; margin-bottom:.5rem;
-      text-shadow:2px 2px 6px rgba(0,0,0,0.7) }
-    .overlay .intro {
-      font-size:1.2rem; max-width:700px; margin-bottom:1rem;
-      text-shadow:1px 1px 4px rgba(0,0,0,0.6)
+
+    /* نص الدعوة */
+    .overlay h1 {
+      font-size: calc(1vw + 1rem);
+      margin-bottom: 2.5rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
     }
-    .invText {
-      font-size:1.2rem; max-width:700px; margin-bottom:0.5rem;
-      text-shadow:1px 1px 4px rgba(0,0,0,0.6)
+    .overlay .intro,
+    .invText,
+    .overlay .verse,
+    .overlay .closing {
+      font-size: calc(0.5vw + 0.8rem);
+      /*max-width: 700px;*/
+      margin-bottom: 1rem;
+      line-height: 1.4;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
     }
     .overlay .verse {
-      font-size:1.2rem; max-width:700px; line-height:1.5;
-      margin-bottom:1.5rem; text-shadow:1px 1px 4px rgba(0,0,0,0.6)
+      margin-bottom: 1.5rem;
     }
     .overlay h2 {
-      font-size:2rem;margin-bottom:1rem; letter-spacing:2px;
-      text-shadow:2px 2px 8px rgba(0,0,0,0.6)
+      font-size: calc(1vw + 1rem);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     }
     .overlay .details {
-      font-size:1rem; line-height:1.6; margin-bottom:2rem
+      font-size: calc(0.75vw + 0.7rem);
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
+
+    /* أزرار التفاعل */
     .buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.8rem;
-      margin: 1rem 0;
+      margin-bottom: 1rem;
     }
-    .overlay .map-btn {
-      display:inline-block;
-      margin-bottom:1rem;
-      background:#ffd700;
-      color:#000;
-      padding:.6rem 1.2rem;
-      border-radius:5px;
-      text-decoration:none;
-      font-weight:bold;
+    .map-btn {
+      background: #ffd700;
+      color: #000;
+      padding: .8rem 1.4rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: calc(0.25vw + 0.7rem);
       transition: background .3s;
+      white-space: nowrap;
     }
-    .overlay .map-btn:hover {
-      background:#e0b800;
+    .map-btn:hover {
+      background: #e0b800;
     }
-    .icon-row { display:flex; gap:1.5rem; font-size:1.5rem; color:#ffd700; margin-bottom:1.5rem }
-    .overlay .closing {
-      font-size:1.2rem; max-width:700px;
-      text-shadow:1px 1px 4px rgba(0,0,0,0.6)
+
+    /* أيقونات */
+    .icon-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: calc(1.5vw + 0.5rem);
+      color: #ffd700;
+      margin-bottom: 1.5rem;
+    }
+
+    /* QR code */
+    .qr-code {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .qr-code img {
+      width: 120px;
+      height: 120px;
+      border: 4px solid #ffd700;
+      border-radius: 8px;
+    }
+    .qr-code p {
+      color: #ffd700;
+      font-size: 0.9rem;
+    }
+
+    /* استعلامات الوسائط */
+    @media (max-width: 768px) {
+      .overlay {
+        width: 100vw;
+        padding: 1rem;
+      }
+      .overlay h1 { font-size: 1.8rem; }
+      .overlay h2 { font-size: 1.5rem; }
+      .map-btn {
+        padding: .6rem 1rem;
+        font-size: .9rem;
+      }
+      .icon-row { gap: 1rem; font-size: 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      /* إخفاء الفيديو أو استخدام صورة بديلة لتسريع التحميل */
+      .vid { /*display: none;*/ }
+      body {
+        /*background: url('wedding_poster.jpg') center/cover no-repeat;*/
+      }
+      .overlay {
+        min-height: auto;
+        padding: 3.5rem 1.5rem;
+      }
+      .overlay h1 { font-size: 1.4rem; }
+      .intro,
+      .invText,
+      .overlay .verse,
+      .overlay .closing {
+        font-size: 1rem;
+      }
+      .overlay .details { font-size: .9rem; }
+      .map-btn {
+        padding: .5rem .8rem;
+        font-size: .8rem;
+      }
+      .icon-row {
+        gap: .6rem;
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- خلفية الفيديو -->
   <video id="vA" class="vid" muted autoplay playsinline preload="auto"></video>
   <video id="vB" class="vid" muted playsinline preload="auto"></video>
 
@@ -105,20 +220,14 @@
     <p class="intro">
       بكل الحب والسرور ندعوكم لمشاركتنا أجمل أيام حياتنا في حفل زفافنا.
     </p>
-    
-    <p class="invText">
-      يسرنا
-    </p>
+
+    <p class="invText">يسرنا دعوتكم لحضور حفل زفافهم</p>
 
     <h2>
-      <i class="fas fa-ring"></i>
+      <i class="fa-solid fa-ring"></i>
       إسلام & منه الله
-      <i class="fas fa-ring"></i><br/>
+      <i class="fa-solid fa-ring"></i>
     </h2>
-
-    <p class="invText">
-      دعوتكم لحضور حفل زفافهم
-    </p>
 
     <div class="details">
       يوم الجمعة 18 يوليو 2025<br/>
@@ -128,18 +237,23 @@
     </div>
 
     <div class="buttons">
-      <!-- زر الموقع -->
-      <a href="https://maps.app.goo.gl/caeBdcMmeGadK3oW6" target="_blank" class="map-btn">عرض الخريطة</a>
-      <!-- التقويم -->
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE
-  &text=حفل+زفاف+إسلام+ومنّة+الله
-  &dates=20250718T180000Z/20250719T000000Z
-  &location=قاعة+المنتزه+المحلة+الكبرى" target="_blank" class="map-btn">أضف للتقويم</a>
-      <!-- واتساب -->
-      <a href="https://wa.me/?text=يسرّنا%20دعوتكم%20لحضور%20حفل%20زفاف%20إسلام%20ومنّة%20الله%20
-  في%20قاعة%20المنتزه%20–%20المحلة%20الكبرى%20%7C%2018%20يوليو%202025​" target="_blank" class="map-btn">مشاركة عبر واتساب</a>
-
-      <!-- الزر الجديد لإرسال التهنئة إليك -->
+      <a href="https://maps.app.goo.gl/caeBdcMmeGadK3oW6" target="_blank" class="map-btn">
+        عرض الخريطة
+      </a>
+      <a
+        href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=حفل+زفاف+إسلام+ومنّة+الله&dates=20250718T180000Z/20250719T000000Z&location=قاعة+المنتزه+المحلة+الكبرى"
+        target="_blank"
+        class="map-btn"
+      >
+        أضف للتقويم
+      </a>
+      <a
+        href="https://wa.me/?text=يسرّنا%20دعوتكم%20لحضور%20حفل%20زفاف%20إسلام%20ومنّة%20الله%20في%20قاعة%20المنتزه%20–%20المحلة%20الكبرى%20|%2018%20يوليو%202025"
+        target="_blank"
+        class="map-btn"
+      >
+        مشاركة عبر واتساب
+      </a>
       <a
         href="https://wa.me/201277196477?text=أحرّ%20التهاني%20لإسلام%20ومنّة%20الله%20بمناسبة%20زفافهما"
         target="_blank"
@@ -147,15 +261,21 @@
       >
         أرسل تهنئتك
       </a>
-      
-      <!-- طباعة -->
       <a href="#" onclick="window.print();" class="map-btn">طباعة</a>
     </div>
 
     <div class="icon-row">
-      <i class="fas fa-heart"></i>
-      <i class="fas fa-dove"></i>
-      <i class="fas fa-solid fa-tree"></i>
+      <i class="fa-solid fa-heart"></i>
+      <i class="fa-solid fa-dove"></i>
+      <i class="fa-solid fa-tree"></i>
+    </div>
+
+    <div class="qr-code">
+      <img
+        src="qr_code.png"
+        alt="QR code للدعوة"
+      />
+      <p>امسح الكود لمشاهدة الدعوة على أجهزة أخرى</p>
     </div>
 
     <p class="closing">
@@ -165,7 +285,9 @@
 
   <script>
     const sources = ['wedding_bg1.mp4','wedding_bg2.mp4','wedding_bg3.mp4'];
-    let idx = 0, front = document.getElementById('vA'), back = document.getElementById('vB');
+    let idx = 0,
+        front = document.getElementById('vA'),
+        back  = document.getElementById('vB');
 
     function preloadAndPlay(el, i) {
       el.src = sources[i];
